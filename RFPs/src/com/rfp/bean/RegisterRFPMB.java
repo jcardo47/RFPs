@@ -3,7 +3,7 @@ package com.rfp.bean;
 import java.util.Calendar;
 
 import com.rfp.to.RequestTO;
-//import com.rfp.wrapper.RFPWrapper;
+import com.rfp.wrapper.RFPWrapper;
 
 public class RegisterRFPMB {
 	
@@ -63,8 +63,8 @@ public class RegisterRFPMB {
 		request.setFilename(filename);
 		
 		String result = "failure";
-		//RFPWrapper wrapper = new RFPWrapper();
-		//wrapper.registerRFP(request);
+		RFPWrapper wrapper = new RFPWrapper();
+		wrapper.registerRFP(request);
 		if (request.getRequestId() != -1)
 		{
 			result = "success";
