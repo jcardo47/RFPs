@@ -17,7 +17,6 @@ public class UserService
 		try
 		{
 			em = emf.createEntityManager();
-			
 			User user = em.find(User.class, userTO.getUsername());
 			if (user != null)
 			{

@@ -25,17 +25,23 @@ public class LoginMB {
 	}
 	
 	public String login() {
+		System.out.println("Hola Mundo");
 		RFPWrapper wrapper = new RFPWrapper();
 		UserTO user = new UserTO();
 		user.setUsername(username);
 		user.setPassword(password);
+		String result = "failure";
 		if (wrapper.login(user))
 		{
-			return "success";
+			if (username.equals("admin"))
+			{
+				result = "successAdmin";
+			}
+			else
+			{
+				result = "success";
+			}
 		}
-		else
-		{
-			return "failure";
-		}
+		return result;
 	}
 }

@@ -10,14 +10,15 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="section_item")
-
 public class Item implements Serializable {
 
 	   
 	@Id
+	@Column(name = "section_item_id")
 	private long itemId;
 	@Column(name = "request_section_id")
 	private long requestSectionId;
+
 	public long getRequestSectionId() {
 		return requestSectionId;
 	}

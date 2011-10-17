@@ -5,25 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login</title>
+<title>Admin Home</title>
 </head>
 <body>
 <f:view>
-	<table>
-	<h:form>
-		<tr>
-			<td>User Name</td>
-			<td><h:inputText value="#{loginMB.username}"></h:inputText></td>
-		</tr>
-		<tr>
-			<td>Password</td>
-			<td><h:inputSecret value="#{loginMB.password}"></h:inputSecret></td>
-		</tr>
-		<tr>
-			<td colspan="2"><h:commandButton type="submit" value="Login" action="#{loginMB.login}"></h:commandButton></td>
-		</tr>
-	</h:form>
-	</table>
+<center>
+	<h1>Bienvenido</h1>
+</center>
 </f:view>
 </body>
 </html>
