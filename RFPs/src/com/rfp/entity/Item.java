@@ -15,6 +15,7 @@ public class Item implements Serializable {
 	   
 	@Id
 	@Column(name = "section_item_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long itemId;
 	@Column(name = "request_section_id")
 	private long requestSectionId;

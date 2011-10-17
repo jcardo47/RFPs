@@ -17,11 +17,7 @@ public class SectionRole implements Serializable {
 	private String comment;
 	private double average;
 	private long status;
-	private static final long serialVersionUID = 1L;
-
-	public SectionRole() {
-		super();
-	}   
+  
 	public String getComment() {
 		return this.comment;
 	}

@@ -1,7 +1,7 @@
 package com.rfp.bean;
 
 import com.rfp.to.UserTO;
-import com.rfp.wrapper.RFPWrapper;
+//import com.rfp.wrapper.RFPWrapper;
 
 public class LoginMB {
 
@@ -26,11 +26,12 @@ public class LoginMB {
 	
 	public String login() {
 		System.out.println("Hola Mundo");
-		RFPWrapper wrapper = new RFPWrapper();
+		//RFPWrapper wrapper = new RFPWrapper();
 		UserTO user = new UserTO();
 		user.setUsername(username);
 		user.setPassword(password);
 		String result = "failure";
+		/*
 		if (wrapper.login(user))
 		{
 			if (username.equals("admin"))
@@ -42,6 +43,7 @@ public class LoginMB {
 				result = "success";
 			}
 		}
+		*/
 		return result;
 	}
 }

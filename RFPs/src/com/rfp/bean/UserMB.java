@@ -1,7 +1,7 @@
 package com.rfp.bean;
 
 import com.rfp.to.UserTO;
-import com.rfp.wrapper.RFPWrapper;
+//import com.rfp.wrapper.RFPWrapper;
 
 
 public class UserMB 
@@ -15,13 +15,13 @@ public class UserMB
 	
 	public String registerUser ()
 	{
-		RFPWrapper wrapper = new RFPWrapper();
+		//RFPWrapper wrapper = new RFPWrapper();
 		String returnValue = "failure";
 		try 
 		{
 			UserTO userTO = new UserTO();	
 			userTO = getAsUserTO ();
-			userTO = wrapper.registerUser(userTO);
+			//userTO = wrapper.registerUser(userTO);
 			returnValue = "success";
 		} 
 		catch (Exception e) 
