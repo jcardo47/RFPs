@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13188055061440" configfile="/RFPs/WebContent/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13188055061440" configfile="/RFPs/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="SuccessRegisterUser" x="264" y="84" id="pf13188191280242" inlinks="pf13188191741574" path="/SuccessRegisterUser.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="RegisterUserView" x="60" y="84" id="pf13188191654323" outlinks="pf13188191741574" path="/RegisterUserView.jsp"/>
+  <links id="pf13188191741574" target="pf13188191280242" source="pf13188191654323" outcome="success"/>
+</pageflow:Pageflow>

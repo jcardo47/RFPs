@@ -21,5 +21,18 @@
 		<managed-bean-class>com.rfp.bean.RegisterRFPMB</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>userMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.UserMB</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>RegisterUserView</display-name>
+		<from-view-id>/RegisterUserView.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/SuccessRegisterUser.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>
