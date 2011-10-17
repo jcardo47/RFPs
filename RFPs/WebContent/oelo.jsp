@@ -10,6 +10,7 @@
 <body>
 <f:view>
 		oelo
+		Hola Mundo
 
 </f:view>
 </body>
