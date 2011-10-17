@@ -12,7 +12,6 @@
 	<h1>Elias</h1>
 		oelo
 		Hola Mundo
-
 </f:view>
 </body>
 </html>
