@@ -21,6 +21,8 @@ public class User implements Serializable {
 	private String lastName;
 	private String password;
 	private String email;
+	@Column(name = "admin")
+	private boolean isAdmin;
 
 	public String getUsername() {
 		return this.username;
@@ -56,5 +58,13 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 }

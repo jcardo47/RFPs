@@ -17,7 +17,7 @@ public class DateConverter implements Converter{
 	{  	
 		try
 		{
-			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 			Date date = (Date)formatter.parse(str); 
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(date);
@@ -33,7 +33,7 @@ public class DateConverter implements Converter{
 	public String getAsString(FacesContext context, UIComponent component, Object object)
 	{
 		Calendar calendar = (Calendar)object;
-		return "" + calendar.get(Calendar.DATE) + "/" + calendar.get(Calendar.MONTH) + "/" + 
+		return "" + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.DATE) + "/" + 
 				calendar.get(Calendar.YEAR); 
 	}
 }

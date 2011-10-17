@@ -16,6 +16,7 @@ public class Section implements Serializable {
 	   
 	@Id
 	@Column(name = "section_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long sectionId;
 
 	private String name;

@@ -1,6 +1,5 @@
 package com.rfp.entity;
 
-import com.rfp.entity.Section;
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -9,13 +8,14 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="request_section")
-public class RequestSection implements Serializable {
+@Table(name="rfp_section")
+public class RFPSection implements Serializable {
 
 	   
 	@Id
 	@Column(name = "request_section_id")
-	private long requestSectionId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long rfpSectionId;
 	
 	public long getRequestId() {
 		return requestId;
@@ -41,18 +41,19 @@ public class RequestSection implements Serializable {
 
 	private double average;
 
-	public long getRequestSectionId() {
-		return this.requestSectionId;
-	}
-
-	public void setRequestSectionId(long requestSectionId) {
-		this.requestSectionId = requestSectionId;
-	}
 	public double getAverage() {
 		return this.average;
 	}
 
 	public void setAverage(double average) {
 		this.average = average;
+	}
+
+	public long getRfpSectionId() {
+		return rfpSectionId;
+	}
+
+	public void setRfpSectionId(long rfpSectionId) {
+		this.rfpSectionId = rfpSectionId;
 	}
 }

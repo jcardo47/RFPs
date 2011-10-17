@@ -2,7 +2,6 @@ package com.rfp.entity;
 
 import java.io.Serializable;
 import java.lang.String;
-import java.util.List;
 import java.util.Calendar;
 import javax.persistence.*;
 
@@ -11,12 +10,13 @@ import javax.persistence.*;
  *
  */
 @Entity
-@Table(name="request")
-public class Request implements Serializable {
+@Table(name="rfp")
+public class RFP implements Serializable {
 
 	@Id
-	@Column(name = "request_id")
-	private long requestId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "rfp_id")
+	private long rfpId;
 
 	private String name;
 	
@@ -37,17 +37,12 @@ public class Request implements Serializable {
 	@Column(name = "response_time")
 	private long responseTime;
 	
-	private long status;
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "status")
+	private RFPStatus status;
 
 	private double average;
-
-	public long getRequestId() {
-		return this.requestId;
-	}
-
-	public void setRequestId(long requestId) {
-		this.requestId = requestId;
-	}   
+ 
 	public String getName() {
 		return this.name;
 	}
@@ -96,19 +91,28 @@ public class Request implements Serializable {
 
 	public void setResponseTime(long responseTime) {
 		this.responseTime = responseTime;
-	}   
-	public long getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(long status) {
-		this.status = status;
-	}   
+	} 
 	public double getAverage() {
 		return this.average;
 	}
 
 	public void setAverage(double average) {
 		this.average = average;
+	}
+
+	public long getRfpId() {
+		return rfpId;
+	}
+
+	public void setRfpId(long rfpId) {
+		this.rfpId = rfpId;
+	}
+
+	public RFPStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(RFPStatus status) {
+		this.status = status;
 	}
 }

@@ -4,10 +4,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.rfp.entity.Request;
+import com.rfp.entity.RFP;
 import com.rfp.to.RequestTO;
 
-public class RequestService {
+public class RFPService {
 
 	public void registerRFP(RequestTO requestTO)
 	{
@@ -16,16 +16,16 @@ public class RequestService {
 		try
 		{
 			em = emf.createEntityManager();
-
-			Request request = new Request();
+			RFP request = new RFP();
 			request.setName(requestTO.getName());
 			request.setStartDate(requestTO.getStartDate());
 			request.setDecitionDate(requestTO.getDecitionDate());
 			request.setCompany(requestTO.getCompany());
 			request.setFilename(requestTO.getFilename());
-			
+			em.getTransaction().begin();
 			em.persist(request);
-			requestTO.setRequestId(request.getRequestId());
+			em.getTransaction().commit();
+			requestTO.setRequestId(request.getRfpId());
 		}
 		catch (Exception e) 
 		{

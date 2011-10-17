@@ -6,7 +6,7 @@ import javax.persistence.Embeddable;
 public class SectionRolePK 
 {
 	private String username;
-	private long requestSectionId;
+	private long rfpSectionId;
 	
 	public String getUsername() {
 		return username;
@@ -14,10 +14,10 @@ public class SectionRolePK
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public long getRequestSectionId() {
-		return requestSectionId;
+	public long getRfpSectionId() {
+		return rfpSectionId;
 	}
-	public void setRequestSectionId(long requestSectionId) {
-		this.requestSectionId = requestSectionId;
+	public void setRfpSectionId(long rfpSectionId) {
+		this.rfpSectionId = rfpSectionId;
 	}
 }

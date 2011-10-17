@@ -1,12 +1,12 @@
 package com.rfp.manager;
 
-import com.rfp.service.RequestService;
+import com.rfp.service.RFPService;
 import com.rfp.to.RequestTO;
 
-public class RequestManager {
+public class RFPManager {
 	public void registerRFP(RequestTO requestTO)
 	{
-		RequestService service = new RequestService();
+		RFPService service = new RFPService();
 		service.registerRFP(requestTO);
 	}
 }
