@@ -17,14 +17,24 @@
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>registerRFPMB</managed-bean-name>
-		<managed-bean-class>com.rfp.bean.RegisterRFPMB</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
 		<managed-bean-name>userMB</managed-bean-name>
 		<managed-bean-class>com.rfp.bean.UserMB</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>rfpSearchMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.RFPSearchMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>rfpViewMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.ViewRFPMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>rfpSectionsMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.AdminRFPSectionsMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<navigation-rule>
 		<display-name>RegisterUserView</display-name>

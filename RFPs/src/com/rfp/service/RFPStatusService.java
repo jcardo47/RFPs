@@ -8,6 +8,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import org.apache.catalina.manager.StatusTransformer;
+
 import com.rfp.entity.RFPStatus;
 import com.rfp.to.RFPStatusTO;
 
@@ -31,6 +33,32 @@ public class RFPStatusService {
 				resutl.add(to);
 			}
 			return resutl;
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
+	}
+	
+	public RFPStatusTO getStatus(int id)
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			RFPStatusTO to = null;
+			RFPStatus status = em.find(RFPStatus.class, id);
+			if (status != null)
+			{
+				to = new RFPStatusTO();
+				to.setStatusId(status.getStatusId());
+				to.setName(status.getName());
+			}
+			return to;
 		}
 		finally
 		{

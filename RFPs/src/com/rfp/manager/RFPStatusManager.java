@@ -12,4 +12,10 @@ public class RFPStatusManager {
 		RFPStatusService service = new RFPStatusService();
 		return service.getAllStatus();
 	}
+	
+	public RFPStatusTO getStatus(int id)
+	{
+		RFPStatusService service = new RFPStatusService();
+		return service.getStatus(id);	
+	}
 }

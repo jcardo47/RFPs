@@ -17,51 +17,38 @@
 	$(function() {
 		$( "#decitionDate" ).datepicker();
 	});
-	
-	function updateStartDate() {
-		var sDate = document.getElementById("startDate").value;
-		document.getElementById("form:startDate").value = sDate;
-	}
-	
-	function updateDecitionDate() {
-		var sDate = document.getElementById("decitionDate").value;
-		document.getElementById("form:decitionDate").value = sDate;
-	}
 </script>
 </head>
 <body>
 <f:view>
 <center>
 	<table>
-	<h:form id="form">
-		<tr>
-			<td>Nombre</td>
-			<td><h:inputText value="#{registerRFPMB.name}"></h:inputText> </td>
-		</tr>
-		<tr>
-			<td>Fecha de Inicio</td>
-			<td><input type="text" id="startDate" onchange="updateStartDate()">
-			<h:inputHidden id="startDate" value="#{registerRFPMB.startDate}" converter="dateConverter"></h:inputHidden></td>
-		</tr>
-		<tr>
-			<td>Fecha de Decisión</td>
-			<td><input type="text" id="decitionDate" onchange="updateDecitionDate()">
-			<h:inputHidden id="decitionDate" value="#{registerRFPMB.decitionDate}" converter="dateConverter"></h:inputHidden></td>
-		</tr>
-		<tr>
-			<td>Compañia</td>
-			<td><h:inputText value="#{registerRFPMB.company}"></h:inputText></td>
-		</tr>
-		<tr>
-			<td>Archivo</td>
-			<td><h:inputText value="#{registerRFPMB.filename}"></h:inputText></td>
-		</tr>
-		<tr>
-			<td colspan="2"><h:commandButton value="Registrar" action="#{registerRFPMB.registerRFP}" onclick=""></h:commandButton></td>
-		</tr>
-	</h:form>
-	</table>
-	<h:messages></h:messages>
+	<form action="RegisterRFPServlet" enctype="multipart/form-data" method="post">
+	<tr>
+		<td>Nombre</td>
+		<td><input type="text" name="name" id="name"></td>
+	</tr>
+	<tr>
+		<td>Fecha de Inicio</td>
+		<td><input type="text" id="startDate" name="startDate"></td>
+	</tr>
+	<tr>
+		<td>Fecha de Decisi&oacute;n</td>
+		<td><input type="text" id="decitionDate" name="decitionDate"></td>
+	</tr>
+	<tr>
+		<td>Compa&ntilde;&iacute;a</td>
+		<td><input type="text" id="company" name="company"></td>
+	</tr>
+	<tr>
+		<td>Archivo</td>
+		<td><input type="file" name="fichero"></td>
+	</tr>
+	<tr>
+    	<td colspan="2"><input type="submit" value="Registrar"></td>
+    </tr>
+    </form>
+    </table>
 </center>
 </f:view>
 </body>

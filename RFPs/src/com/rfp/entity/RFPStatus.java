@@ -9,10 +9,11 @@ import javax.persistence.*;
  *
  */
 @Entity
-
+@Table(name = "rfp_status")
 public class RFPStatus implements Serializable {
  
 	@Id
+	@Column(name = "id_status")
 	private int statusId;
 	private String name;
   
