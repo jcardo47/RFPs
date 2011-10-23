@@ -17,7 +17,8 @@
 				<h:outputLink value="RFPStatusRegister.jsp">Crear RFP Estados</h:outputLink>
 				<h:outputLink value="RegisterUserView.jsp">Editar Perfil</h:outputLink>	
 				<h:outputLink value="ListSectionRoles.jsp">Listar RFPs Asignados</h:outputLink>
-				<h:outputLink value="searchRFP.jsp">Buscar RFPs</h:outputLink>						
+				<h:outputLink value="searchRFP.jsp">Buscar RFPs</h:outputLink>		
+				<h:outputLink value="registerRFP.jsp">Registrar RFP</h:outputLink>				
 			</h:panelGrid>
 		</h:form>
 </f:view>
