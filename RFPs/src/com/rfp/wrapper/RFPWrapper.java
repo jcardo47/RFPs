@@ -25,7 +25,7 @@ import com.rfp.to.UserTO;
 
 public class RFPWrapper
 {
-	public ArrayList<String[]> getSectionRoles(UserTO userTO)
+	public ArrayList<Object[]> getSectionRoles(UserTO userTO)
 	{
 		RFPSectionRoleManager manager = new RFPSectionRoleManager();
 		return manager.getListSectionRolesByUser(userTO);

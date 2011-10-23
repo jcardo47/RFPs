@@ -7,30 +7,33 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+
+import com.rfp.entity.RFPSection;
+import com.rfp.to.RFPSectionTO;
 import com.rfp.to.UserTO;
 
 public class RFPSectionRoleService 
 {
-	public ArrayList<String[]> getSectionRoles(UserTO userTO)
+	public ArrayList<RFPSectionTO> getSectionRoles(UserTO userTO)
 	{
-		ArrayList<String[]> result = new ArrayList<String[]>();
+		
+		ArrayList<RFPSectionTO> result = new ArrayList<RFPSectionTO>();
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
 		EntityManager em = null;
 		try
 		{
 			em = emf.createEntityManager();
-			Query query = em.createQuery("Select rfps.rfpId, rfps.sectionId from SectionRole sr, RFPSection rfps, Section s, RFP rfp where" +
+			Query query = em.createQuery("Select rfps from SectionRole sr, RFPSection rfps, Section s, RFP rfp where" +
 					" sr.sectionRoleId.username = :username and sr.sectionRoleId.rfpSectionId = rfps.rfpSectionId and" +
 					" s.sectionId = rfps.sectionId and rfp.rfpId = rfps.rfpId");
 			query.setParameter("username", userTO.getUsername());
-			List<Object[]> rs = query.getResultList();			
-			for (Object[] r : rs)
-			{				
-				String [] obj = new String [2];
-				obj[0] = r[0].toString();
-				obj[1] = r[1].toString();
-				result.add(obj);
+			List <RFPSection> rs = query.getResultList();
+			RFPSectionService service = new RFPSectionService();
+			for (RFPSection rfps : rs)
+			{
+				result.add(service.getRFPSection(rfps.getRfpSectionId()));
 			}
+			
 		}
 		finally
 		{

@@ -4,6 +4,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 import com.rfp.to.ItemTO;
+import com.rfp.to.RFPSectionTO;
 import com.rfp.to.RFPTO;
 import com.rfp.wrapper.RFPWrapper;
 
@@ -49,24 +50,23 @@ public class RateItemMB {
 
 	public void updateMB()
 	{
-		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
-		String strRfpId = request.getParameter("rfpId");
+		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();		
 		String strRfpSectionId = request.getParameter("rfpSectionId");
 		String strItemId = request.getParameter("itemId");
-		if (strRfpId != null && !strRfpId.equals("") && strRfpSectionId != null
+		if (strRfpSectionId != null
 				&& !strRfpSectionId.equals("") && strItemId != null && !strItemId.equals(""))
-		{
-			long rfpId = Long.parseLong(strRfpId);
+		{			
 			long rfpSectionId = Long.parseLong(strRfpSectionId);
 			itemId = Long.parseLong(strItemId);
 			RFPWrapper wrapper = new RFPWrapper();
-			RFPTO rfp = wrapper.getRFP(rfpId);
+			RFPSectionTO rfpSectionTO = wrapper.getRFPSection(rfpSectionId);
+			RFPTO rfp = wrapper.getRFP(rfpSectionTO.getRfpId());
 			ItemTO item = wrapper.getItem(itemId);
 			rfpName = rfp.getName();
 			company = rfp.getCompany();
 			itemName = item.getName();
 			value = item.getValue();
-			setSectionName(wrapper.getRFPSection(rfpSectionId).getSectionName());
+			setSectionName(rfpSectionTO.getSectionName());
 		}
 	}
 

@@ -83,20 +83,20 @@ public class RFPSectionService {
 		try
 		{
 			em = emf.createEntityManager();
-			RFPSection entity = em.find(RFPSection.class, id);
+			RFPSection entity = em.find(RFPSection.class, id);		
 			if (entity != null)
-			{
+			{				
 				RFPSectionTO to = new RFPSectionTO();
 				to.setAverage(entity.getAverage());
-				to.setRfpId(to.getRfpId());
-				to.setRfpSectionId(id);
+				to.setRfpId(entity.getRfpId());
+				to.setRfpSectionId(id);				
 				to.setSectionId(entity.getSectionId());
 				Section section = em.find(Section.class, to.getSectionId());
-				to.setSectionName(section.getName());
+				to.setSectionName(section.getName());				
 				return to;
 			}
 			else
-			{
+			{				
 				return null;
 			}
 		}

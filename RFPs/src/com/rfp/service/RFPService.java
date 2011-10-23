@@ -159,7 +159,7 @@ public class RFPService {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
 		EntityManager em = null;
 		try
-		{
+		{			
 			em = emf.createEntityManager();
 			RFP rfp = em.find(RFP.class, rfpId);
 			RFPTO to = null;

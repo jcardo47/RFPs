@@ -1,3 +1,4 @@
+<%@page import="com.rfp.to.RFPTO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
@@ -16,15 +17,30 @@
 						<f:facet name="header">							
 							<h:outputText value="RFP"></h:outputText>
 						</f:facet>
-						<h:outputLink value="viewRFP.jsp?id=#{result[0]}">Ver RFP</h:outputLink>						
+						<h:outputText value="#{result[0]}"></h:outputText>					
 					</h:column>
 					<h:column id="column2">
 						<f:facet name="header">
+							<h:outputText value="Acción"></h:outputText>							
+						</f:facet>						
+						<h:outputLink value="viewRFP.jsp?id=#{result[1]}">Ver RFP</h:outputLink>						
+					</h:column>
+					<h:column id="column3">
+						<f:facet name="header">
 							<h:outputText value="Sección"></h:outputText>							
+						</f:facet>				
+						<h:outputText value="#{result[2]}"></h:outputText>																
+					</h:column>
+					<h:column id="column4">
+						<f:facet name="header">
+							<h:outputText value="Acción"></h:outputText>							
 						</f:facet>
-						<h:outputText value="#{result[1]}"></h:outputText>
+						<h:outputLink value="addItem.jsp?rfpId=#{result[1]}&rfpSectionId=#{result[3]}">Ver Sección</h:outputLink>												
 					</h:column>
 				</h:dataTable>
+				<%
+					request.setAttribute("oelo", "oelo");									
+				%>
 			</h:form>
 	</center>
 </f:view>

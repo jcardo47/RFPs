@@ -1,5 +1,6 @@
 <%@page import="javax.faces.context.FacesContext"%>
 <%@page import="com.rfp.bean.AddItemMB"%>
+<%@page import="javax.servlet.http.HttpServletRequest"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
@@ -42,6 +43,12 @@
 				<h:outputText value="Puntuación"></h:outputText>
 			</f:facet>
 			<h:outputText value="#{item.value}"/>
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Acción"></h:outputText>
+			</f:facet>			
+			<h:outputLink value="rateItem.jsp?itemId=#{item.itemId}&rfpSectionId=#{item.requestSectionId}">Calificar</h:outputLink>
 		</h:column>
 	</h:dataTable>
 	<h:panelGrid columns="3">

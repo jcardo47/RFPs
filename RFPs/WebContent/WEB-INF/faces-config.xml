@@ -49,7 +49,7 @@
 	<managed-bean>
 		<managed-bean-name>listRFPSectionRoles</managed-bean-name>
 		<managed-bean-class>com.rfp.bean.ListRFPSectionRolesMB</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>addItemMB</managed-bean-name>
