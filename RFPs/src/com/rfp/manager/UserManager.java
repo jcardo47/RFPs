@@ -1,5 +1,7 @@
 package com.rfp.manager;
 
+import java.util.List;
+
 import com.rfp.exception.UserRegisterException;
 import com.rfp.service.UserService;
 import com.rfp.to.UserTO;
@@ -24,5 +26,11 @@ public class UserManager
 			return service.registerUser(userTO);
 		}
 		
+	}
+	
+	public List<UserTO> getUsers()
+	{
+		UserService service = new UserService();
+		return service.getUsers();
 	}
 }

@@ -60,16 +60,21 @@
 		</h:column>
 	</h:dataTable>
 	<h:form>
-	<table>
-		<tr>
-		<td>Agregar Secci&oacute;n</td>
-		<td><h:selectOneMenu value="#{rfpSectionsMB.sectionId}">
-				<f:selectItem itemLabel="-Select-" itemValue="-1"/>
-				<f:selectItems value="#{rfpSectionsMB.sectionList}"/>
-			</h:selectOneMenu></td>
-		<td><h:commandButton value="Agregar" action="#{rfpSectionsMB.addSection}"/></td>
-		</tr>
-	</table>
+	<h:panelGrid columns="1">
+	<h:panelGrid columns="2">
+		<h:outputText value="Agregar Sección"/>
+		<h:selectOneMenu value="#{rfpSectionsMB.sectionId}">
+			<f:selectItem itemLabel="-Select-" itemValue="-1"/>
+			<f:selectItems value="#{rfpSectionsMB.sectionList}"/>
+		</h:selectOneMenu>
+		<h:outputText value="Responsable"></h:outputText>
+		<h:selectOneMenu value="#{rfpSectionsMB.userName}">
+			<f:selectItem itemLabel="-Select-" itemValue="-1"/>
+			<f:selectItems value="#{rfpSectionsMB.userList}"/>
+		</h:selectOneMenu>
+	</h:panelGrid>
+	<h:commandButton value="Agregar" action="#{rfpSectionsMB.addSection}"/>
+	</h:panelGrid>
 	</h:form>
 </f:view>
 </body>
