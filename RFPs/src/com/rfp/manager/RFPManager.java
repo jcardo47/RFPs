@@ -35,4 +35,10 @@ public class RFPManager {
 		RFPService service = new RFPService();
 		return service.editRFP(to);
 	}
+	
+	public boolean rateRFP(long rfpId, double rate)
+	{
+		RFPService service = new RFPService();
+		return service.rateRFP(rfpId, rate);
+	}
 }

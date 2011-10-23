@@ -1,5 +1,7 @@
 package com.rfp.service;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,16 @@ import com.rfp.to.RFPTO;
 
 public class RFPService {
 
-	public static final String URL = "http://192.168.1.69:8080/docsRFP/";
+	private String url;
+	
+	public RFPService()
+	{
+		try 
+		{
+			url = "http://" + InetAddress.getLocalHost().getHostAddress() + ":8080/docsRFP/";
+		} 
+		catch (UnknownHostException e)  {} 
+	}
 	
 	public void registerRFP(RFPTO requestTO)
 	{
@@ -68,7 +79,7 @@ public class RFPService {
 				to.setCompany(rfp.getCompany());
 				to.setStartDate(rfp.getStartDate());
 				to.setDecitionDate(rfp.getDecitionDate());
-				to.setFilename(URL + rfp.getRfpId() + "/" + rfp.getFilename());
+				to.setFilename(url + rfp.getRfpId() + "/" + rfp.getFilename());
 				to.setComment(rfp.getComment());
 				to.setAverage(rfp.getAverage());
 				if(rfp.getStatus() != null)
@@ -120,7 +131,7 @@ public class RFPService {
 				to.setCompany(rfp.getCompany());
 				to.setStartDate(rfp.getStartDate());
 				to.setDecitionDate(rfp.getDecitionDate());
-				to.setFilename(URL + rfp.getRfpId() + "/" + rfp.getFilename());
+				to.setFilename(url + rfp.getRfpId() + "/" + rfp.getFilename());
 				to.setComment(rfp.getComment());
 				to.setAverage(rfp.getAverage());
 				if(rfp.getStatus() != null)
@@ -160,7 +171,7 @@ public class RFPService {
 				to.setCompany(rfp.getCompany());
 				to.setStartDate(rfp.getStartDate());
 				to.setDecitionDate(rfp.getDecitionDate());
-				to.setFilename(URL + rfp.getRfpId() + "/" + rfp.getFilename());
+				to.setFilename(url + rfp.getRfpId() + "/" + rfp.getFilename());
 				to.setComment(rfp.getComment());
 				to.setAverage(rfp.getAverage());
 				if(rfp.getStatus() != null)
@@ -213,6 +224,39 @@ public class RFPService {
 			return true;
 		}
 		catch (Exception e) {
+			return false;
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
+	}
+	
+	public boolean rateRFP(long rfpId, double rate)
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			RFP rfp = em.find(RFP.class, rfpId);
+			if (rfp != null)
+			{
+				em.getTransaction().begin();
+				rfp.setAverage(rate);
+				em.getTransaction().commit();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		catch (Exception e) 
+		{
 			return false;
 		}
 		finally

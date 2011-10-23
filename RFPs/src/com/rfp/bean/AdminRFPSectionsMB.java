@@ -55,20 +55,27 @@ public class AdminRFPSectionsMB {
 	public void updateMB()
 	{
 		HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+		RFPWrapper wrapper = new RFPWrapper();
 		String value = request.getParameter("id");
+		long id = -1;
 		if (value != null && !value.equals(""))
 		{
-			long id = Long.parseLong(value);
-			RFPWrapper wrapper = new RFPWrapper();
-			setRfp(wrapper.getRFP(id));
-			rfpSections = wrapper.getRFPSections(id);
+			id = Long.parseLong(value);
+		}
+		else if (rfp != null)
+		{
+			id = rfp.getRequestId();
 		}
 		else
 		{
 			rfpSections = new ArrayList<RFPSectionTO>();
 		}
+		if (id != -1)
+		{
+			setRfp(wrapper.getRFP(id));
+			rfpSections = wrapper.getRFPSections(id);
+		}
 		sectionList = new ArrayList<SelectItem>();
-		RFPWrapper wrapper = new RFPWrapper();
 		List<SectionTO> list = wrapper.getAllSections();
 		for(SectionTO to : list)
 		{

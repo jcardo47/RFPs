@@ -135,7 +135,9 @@
 	</tr>
 	<tr>
 		<td>Puntuación</td>
-		<td><h:inputText value="#{rfpViewMB.rfp.average}"></h:inputText></td>
+		<td><h:inputText value="#{rfpViewMB.rfp.average}">
+			<f:validateDoubleRange minimum="0" maximum="5"/>
+		</h:inputText></td>
 	</tr>
 	<tr>
 		<td colspan="2"><h:commandButton value="Editar" action="#{rfpViewMB.editRFP}"></h:commandButton></td>

@@ -1,24 +1,11 @@
-package com.rfp.entity;
+package com.rfp.to;
 
-import java.io.Serializable;
-import java.lang.String;
-import javax.persistence.*;
+public class ItemTO {
 
-/**
- * Entity implementation class for Entity: Item
- *
- */
-@Entity
-@Table(name="section_item")
-public class Item implements Serializable {
-
-	   
-	@Id
-	@Column(name = "section_item_id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long itemId;
-	@Column(name = "rfp_section_id")
 	private long requestSectionId;
+	private String name;
+	private double value;
 
 	public long getRequestSectionId() {
 		return requestSectionId;
@@ -27,9 +14,6 @@ public class Item implements Serializable {
 	public void setRequestSectionId(long requestSectionId) {
 		this.requestSectionId = requestSectionId;
 	}
-
-	private String name;
-	private double value;
   
 	public long getItemId() {
 		return this.itemId;

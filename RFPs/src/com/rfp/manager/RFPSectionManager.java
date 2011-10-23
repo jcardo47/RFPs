@@ -18,4 +18,22 @@ public class RFPSectionManager {
 		RFPSectionService service = new RFPSectionService();
 		return service.addRFPSection(to);
 	}
+	
+	public RFPSectionTO getRFPSection(long id)
+	{
+		RFPSectionService service = new RFPSectionService();
+		return service.getRFPSection(id);
+	}
+	
+	public boolean rateRFPSection(RFPSectionTO to)
+	{
+		RFPSectionService service = new RFPSectionService();
+		return service.rateRFPSection(to);
+	}
+	
+	public double getAvgRFPSections(long rfpId)
+	{
+		RFPSectionService service = new RFPSectionService();
+		return service.getAvgRFPSections(rfpId);
+	}
 }

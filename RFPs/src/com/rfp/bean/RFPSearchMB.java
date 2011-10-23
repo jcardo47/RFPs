@@ -16,9 +16,11 @@ public class RFPSearchMB {
 	private int statusId;
 	private List<SelectItem> statusList;
 	private List<RFPTO> rfps;
+	private boolean renderTable;
 	
 	public RFPSearchMB() 
 	{
+		renderTable = false;
 		setName("");
 		setCompany("");
 		statusList = new ArrayList<SelectItem>();
@@ -75,6 +77,14 @@ public class RFPSearchMB {
 	{
 		RFPWrapper wrapper = new RFPWrapper();
 		rfps = wrapper.getAllRFPs();
+		if (rfps.size() > 0)
+		{
+			renderTable = true;
+		}
+		else
+		{
+			renderTable = false;
+		}
 		return "success";
 	}
 	
@@ -82,6 +92,22 @@ public class RFPSearchMB {
 	{
 		RFPWrapper wrapper = new RFPWrapper();
 		rfps = wrapper.searchRFPs(name, company, statusId);
+		if (rfps.size() > 0)
+		{
+			renderTable = true;
+		}
+		else
+		{
+			renderTable = false;
+		}
 		return "success";
+	}
+
+	public boolean isRenderTable() {
+		return renderTable;
+	}
+
+	public void setRenderTable(boolean renderTable) {
+		this.renderTable = renderTable;
 	}
 }
