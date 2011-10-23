@@ -9,6 +9,33 @@ import com.rfp.to.UserTO;
 
 public class UserService 
 {
+	
+	public UserTO getUserByUserName(UserTO userTO)
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		UserTO newUserTO = null;
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			User user = em.find(User.class, userTO.getUsername());
+			if (user != null)
+			{
+				newUserTO = entityUserTO(user);
+			}
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
+			
+		return newUserTO;
+	}
+	
+	
 	public boolean login(UserTO userTO)
 	{
 		boolean result = false;
@@ -81,6 +108,18 @@ public class UserService
 			}
 		}		
 		return userTo;
+	}
+
+	public static UserTO entityUserTO (User user)
+	{
+		UserTO userTO = new UserTO();
+		userTO.setEmail(user.getEmail());
+		userTO.setFirstName(user.getFirstName());
+		userTO.setLastName(user.getLastName());
+		userTO.setUsername(user.getUsername());
+		userTO.setPassword(user.getPassword());
+		userTO.setAdmin(user.isAdmin());
+		return userTO;
 	}
 	
 	public static User userTOEntity (UserTO userTo)

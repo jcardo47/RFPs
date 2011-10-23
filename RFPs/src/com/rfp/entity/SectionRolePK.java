@@ -1,11 +1,14 @@
 package com.rfp.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
 public class SectionRolePK 
 {
+	@Column(name = "user_name")
 	private String username;
+	@Column (name = "rfp_section_id")
 	private long rfpSectionId;
 	
 	public String getUsername() {

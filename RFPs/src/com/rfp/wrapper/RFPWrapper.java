@@ -1,10 +1,15 @@
 package com.rfp.wrapper;
 
+import java.util.ArrayList;
 import java.util.List;
-
+import com.rfp.exception.InvalidPassword;
+import com.rfp.exception.InvalidUseName;
+import com.rfp.exception.RFPStatusAlreadySaved;
+import com.rfp.exception.SectionAlreadySaved;
 import com.rfp.exception.UserRegisterException;
 import com.rfp.manager.RFPManager;
 import com.rfp.manager.RFPSectionManager;
+import com.rfp.manager.RFPSectionRoleManager;
 import com.rfp.manager.RFPStatusManager;
 import com.rfp.manager.SectionManager;
 import com.rfp.manager.UserManager;
@@ -16,7 +21,13 @@ import com.rfp.to.UserTO;
 
 public class RFPWrapper
 {
-	public boolean login(UserTO user) 
+	public ArrayList<String[]> getSectionRoles(UserTO userTO)
+	{
+		RFPSectionRoleManager manager = new RFPSectionRoleManager();
+		return manager.getListSectionRolesByUser(userTO);
+	}
+	
+	public UserTO login(UserTO user) throws InvalidUseName, InvalidPassword 
 	{
 		UserManager manager = new UserManager(); 
 		return manager.login(user);
@@ -80,6 +91,18 @@ public class RFPWrapper
 	{
 		RFPSectionManager manager = new RFPSectionManager();
 		return manager.getRFPSections(rfpId);
+	}
+	
+	public SectionTO registerSection (SectionTO sectionTO) throws SectionAlreadySaved
+	{
+		SectionManager manager = new SectionManager();
+		return manager.registerSection(sectionTO);
+	}
+	
+	public RFPStatusTO registerRFPStatus (RFPStatusTO rfpStatusTO) throws RFPStatusAlreadySaved 
+	{
+		RFPStatusManager manager = new RFPStatusManager();
+		return manager.registerStatus(rfpStatusTO);
 	}
 	
 	public boolean addRFPSection(RFPSectionTO to)

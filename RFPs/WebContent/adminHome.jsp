@@ -8,10 +8,18 @@
 <title>Admin Home</title>
 </head>
 <body>
+	<%@include file="UserTemplate.jsp"%>
 <f:view>
-<center>
-	<h1>Bienvenido</h1>
-</center>
+	<center>
+	<h:form>
+			<h:panelGrid border="1" columns="1">
+				<h:outputLink value="SectionRegister.jsp">Crear Secciones</h:outputLink>				
+				<h:outputLink value="RFPStatusRegister.jsp">Crear RFP Estados</h:outputLink>
+				<h:outputLink value="RegisterUserView.jsp">Editar Perfil</h:outputLink>	
+				<h:outputLink value="ListSectionRoles.jsp">Listar RFPs Asignados</h:outputLink>						
+			</h:panelGrid>
+		</h:form>
 </f:view>
+</center>
 </body>
 </html>

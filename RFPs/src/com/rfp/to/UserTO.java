@@ -7,6 +7,7 @@ public class UserTO {
 	private String lastName;
 	private String password;
 	private String email;
+	private boolean isAdmin;
 
 	public String getUsername() {
 		return this.username;
@@ -42,5 +43,13 @@ public class UserTO {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 }

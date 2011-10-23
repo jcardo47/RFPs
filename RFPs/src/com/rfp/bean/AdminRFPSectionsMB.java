@@ -18,7 +18,7 @@ public class AdminRFPSectionsMB {
 	private List<RFPSectionTO> rfpSections;
 	private List<SelectItem> sectionList;
 	private int sectionId;
-	private String message;
+	private String message;	
 	
 	public RFPTO getRfp() {
 		return rfp;
