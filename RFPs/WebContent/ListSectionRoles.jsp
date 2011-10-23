@@ -16,7 +16,7 @@
 						<f:facet name="header">							
 							<h:outputText value="RFP"></h:outputText>
 						</f:facet>
-						<h:outputText value="#{result[0]}"></h:outputText>
+						<h:outputLink value="viewRFP.jsp?id=#{result[0]}">Ver RFP</h:outputLink>						
 					</h:column>
 					<h:column id="column2">
 						<f:facet name="header">
