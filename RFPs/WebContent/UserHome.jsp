@@ -8,9 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="UserTemplate.jsp"%>
+
 <f:view>
 <h:form>
-	OElo:
+	<center>
+				<h:panelGrid border="1" columns="1">
+					<h:outputLink value="ListSectionRoles.jsp">Listar RFPs Asignados</h:outputLink>
+					<h:outputLink value="RegisterUserView.jsp">Editar Perfil</h:outputLink>					
+				</h:panelGrid>
+	</center>	
 </h:form>
 </f:view>
 </body>

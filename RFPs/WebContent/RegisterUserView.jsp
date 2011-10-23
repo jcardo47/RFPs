@@ -17,15 +17,19 @@
 				<h:outputLabel value="Apellido:"></h:outputLabel>
 				<h:inputText id="txtLastName" value="#{userMB.lastName}"></h:inputText>
 				<h:outputLabel value="Nombre Usuario:"></h:outputLabel>
-				<h:inputText id="txtUserName" value="#{userMB.username}"></h:inputText>
+				<h:inputText id="txtUserName" value="#{userMB.username}" required="true" requiredMessage="Ingrese el Nombre de Usuario"></h:inputText>
 				<h:outputLabel value="Contraseña:"></h:outputLabel>
-				<h:inputSecret id="txtPassword" value="#{userMB.password}"></h:inputSecret>
-				<h:outputLabel value="Correo:"></h:outputLabel>
+				<h:inputSecret id="txtPassword" value="#{userMB.password}" rendered="true" requiredMessage="Ingresa la Contraseña"></h:inputSecret>
+					<h:outputLabel value="Repita la contraseña" ></h:outputLabel>
+					<h:inputSecret id="txtPassword2" value="#{userMB.password2}"></h:inputSecret>
+					<h:outputLabel value="Correo:"></h:outputLabel>
 				<h:inputText id="txtEmail" value="#{userMB.email}"></h:inputText>
-			</h:panelGrid>
+					<h:outputLabel value="Repita el correo:"></h:outputLabel>
+					<h:inputText id="txtEmail2" value="#{userMB.email2}"></h:inputText>
+				</h:panelGrid>
 			
-				<h:commandButton type="submit" value="Registrar" action="#{userMB.registerUser}"></h:commandButton>				
-				<h:messages style="color: #FF0000"></h:messages>
+				<h:commandButton type="submit" value="#{userMB.butLabel}" action="#{userMB.registerUser}"></h:commandButton>
+				<br><h:outputLabel value="#{userMB.message}" style="color: #FF0000"></h:outputLabel><br><h:messages style="color: #FF0000"></h:messages>
 			</center>
 		</h:form>
 </f:view>

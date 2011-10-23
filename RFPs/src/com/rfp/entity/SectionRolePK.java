@@ -8,7 +8,7 @@ public class SectionRolePK
 {
 	@Column(name = "user_name")
 	private String username;
-	@Column(name = "rfp_section_id")
+	@Column (name = "rfp_section_id")
 	private long rfpSectionId;
 	
 	public String getUsername() {

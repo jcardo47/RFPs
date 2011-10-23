@@ -14,6 +14,7 @@ public class RFPStatus implements Serializable {
  
 	@Id
 	@Column(name = "id_status")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int statusId;
 	private String name;
   

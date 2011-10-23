@@ -18,8 +18,8 @@
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>userMB</managed-bean-name>
-		<managed-bean-class>com.rfp.bean.UserMB</managed-bean-class>
-		<managed-bean-scope>request</managed-bean-scope>
+		<managed-bean-class>com.rfp.bean.RegisterUserMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>rfpSearchMB</managed-bean-name>
@@ -34,6 +34,21 @@
 	<managed-bean>
 		<managed-bean-name>rfpSectionsMB</managed-bean-name>
 		<managed-bean-class>com.rfp.bean.AdminRFPSectionsMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>sectionRegisterMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.SectionRegisterMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>RFPStatusRegisterMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.RFPStatusRegisterMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>listRFPSectionRoles</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.ListRFPSectionRolesMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
@@ -62,6 +77,30 @@
 		<navigation-case>
 			<from-outcome>success</from-outcome>
 			<to-view-id>/SuccessRegisterUser.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>login</display-name>
+		<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>faild</from-outcome>
+			<to-view-id>/login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>login</display-name>
+		<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/UserHome.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>login</display-name>
+		<from-view-id>/login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>successAdmin</from-outcome>
+			<to-view-id>/adminHome.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 

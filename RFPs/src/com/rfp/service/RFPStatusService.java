@@ -8,13 +8,41 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import org.apache.catalina.manager.StatusTransformer;
 
 import com.rfp.entity.RFPStatus;
+import com.rfp.entity.Section;
 import com.rfp.to.RFPStatusTO;
+
 
 public class RFPStatusService {
 
+	
+	
+	
+	public RFPStatusTO registerSection (RFPStatusTO rfpStatusTO)
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{			
+			RFPStatus rfpStatus = new RFPStatus();
+			rfpStatus.setName(rfpStatusTO.getName());
+			em = emf.createEntityManager();
+			em.getTransaction().begin();
+			em.persist(rfpStatus);			
+			em.getTransaction().commit();
+			rfpStatusTO.setStatusId(rfpStatus.getStatusId());
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
+		return rfpStatusTO;
+	}
+	
 	public List<RFPStatusTO> getAllStatus()
 	{
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
@@ -67,5 +95,32 @@ public class RFPStatusService {
 				em.close();
 			}
 		}
+	}
+	
+	
+	public boolean statusExists(RFPStatusTO rfpStatus)
+	{
+		boolean exists = false;
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			Query query = em.createQuery("select s from RFPStatus s where s.name = :newName");
+			query.setParameter("newName", rfpStatus.getName());
+			List<Section> rs = query.getResultList();
+			if (rs.size() > 0)
+			{
+				exists = true;
+			}
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
+		return exists;
 	}
 }
