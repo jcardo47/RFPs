@@ -13,11 +13,13 @@ import com.rfp.manager.RFPSectionManager;
 import com.rfp.manager.RFPSectionRoleManager;
 import com.rfp.manager.RFPStatusManager;
 import com.rfp.manager.SectionManager;
+import com.rfp.manager.SectionRoleManager;
 import com.rfp.manager.UserManager;
 import com.rfp.to.ItemTO;
 import com.rfp.to.RFPSectionTO;
 import com.rfp.to.RFPStatusTO;
 import com.rfp.to.RFPTO;
+import com.rfp.to.SectionRoleTO;
 import com.rfp.to.SectionTO;
 import com.rfp.to.UserTO;
 
@@ -107,7 +109,7 @@ public class RFPWrapper
 		return manager.registerStatus(rfpStatusTO);
 	}
 	
-	public boolean addRFPSection(RFPSectionTO to)
+	public long addRFPSection(RFPSectionTO to)
 	{
 		RFPSectionManager manager = new RFPSectionManager();
 		return manager.addRFPSection(to);
@@ -165,5 +167,17 @@ public class RFPWrapper
 	{
 		RFPManager manager = new RFPManager();
 		return manager.rateRFP(rfpId, rate);
+	}
+	
+	public List<UserTO> getUsers()
+	{
+		UserManager manager = new UserManager();
+		return manager.getUsers();
+	}
+	
+	public boolean createSectionRole(SectionRoleTO to, RFPTO rfp, RFPSectionTO rfpSection)
+	{
+		SectionRoleManager manager = new SectionRoleManager();
+		return manager.createSectionRole(to, rfp, rfpSection);
 	}
 }

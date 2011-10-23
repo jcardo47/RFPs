@@ -47,7 +47,7 @@ public class RFPSectionService {
 		}
 	}
 	
-	public boolean addRFPSection(RFPSectionTO to)
+	public long addRFPSection(RFPSectionTO to)
 	{
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
 		EntityManager em = null;
@@ -61,11 +61,11 @@ public class RFPSectionService {
 			em.getTransaction().begin();
 			em.persist(entity);
 			em.getTransaction().commit();
-			return true;
+			return entity.getRfpSectionId();
 		}
 		catch (Exception e) 
 		{
-			return false;
+			return -1;
 		}
 		finally
 		{

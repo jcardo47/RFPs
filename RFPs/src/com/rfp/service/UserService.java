@@ -1,8 +1,12 @@
 package com.rfp.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.rfp.entity.User;
 import com.rfp.to.UserTO;
@@ -132,5 +136,68 @@ public class UserService
 		user.setPassword(userTo.getPassword());
 		
 		return user;
+	}
+	
+	public List<UserTO> getUsers()
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			Query query = em.createQuery("select u from User u");
+			List<User> rs = query.getResultList();
+			List<UserTO> list = new ArrayList<UserTO>(); 
+			for (User user : rs)
+			{
+				UserTO to = new UserTO();
+				to.setEmail(user.getEmail());
+				to.setFirstName(user.getFirstName());
+				to.setLastName(user.getLastName());
+				to.setPassword(user.getPassword());
+				to.setUsername(user.getUsername());
+				list.add(to);
+			}
+			return list;
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
+	}
+	
+	public UserTO getUser(String userName)
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			User user = em.find(User.class, userName); 
+			if (user != null)
+			{
+				UserTO to = new UserTO();
+				to.setEmail(user.getEmail());
+				to.setFirstName(user.getFirstName());
+				to.setLastName(user.getLastName());
+				to.setPassword(user.getPassword());
+				to.setUsername(user.getUsername());
+				return to;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
 	}
 }

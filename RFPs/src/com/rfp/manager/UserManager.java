@@ -1,5 +1,7 @@
 package com.rfp.manager;
 
+import java.util.List;
+
 import com.rfp.exception.InvalidPassword;
 import com.rfp.exception.InvalidUseName;
 import com.rfp.exception.UserRegisterException;
@@ -40,5 +42,11 @@ public class UserManager
 			return service.registerUser(userTO);
 		}
 		
+	}
+	
+	public List<UserTO> getUsers()
+	{
+		UserService service = new UserService();
+		return service.getUsers();
 	}
 }

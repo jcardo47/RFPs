@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.rfp.to.RFPSectionTO;
 import com.rfp.to.RFPTO;
+import com.rfp.to.SectionRoleTO;
 import com.rfp.to.SectionTO;
+import com.rfp.to.UserTO;
 import com.rfp.wrapper.RFPWrapper;
 
 public class AdminRFPSectionsMB {
@@ -17,8 +19,10 @@ public class AdminRFPSectionsMB {
 	private RFPTO rfp;
 	private List<RFPSectionTO> rfpSections;
 	private List<SelectItem> sectionList;
+	private List<SelectItem> userList;
 	private int sectionId;
-	private String message;	
+	private String userName;
+	private String message;
 	
 	public RFPTO getRfp() {
 		return rfp;
@@ -85,6 +89,13 @@ public class AdminRFPSectionsMB {
 				sectionList.add(item);
 			}
 		}
+		userList = new ArrayList<SelectItem>();
+		List<UserTO> users = wrapper.getUsers();
+		for(UserTO user : users)
+		{
+			userList.add(new SelectItem(user.getUsername(), 
+					user.getFirstName() + " " + user.getLastName()));
+		}
 	}
 	
 	public boolean belongsToRFP(long sectionId)
@@ -102,16 +113,28 @@ public class AdminRFPSectionsMB {
 	
 	public String addSection()
 	{
-		if (sectionId != -1)
+		if (sectionId != -1 && userName != null && !userName.equals(""))
 		{
 			RFPSectionTO to = new RFPSectionTO();
 			to.setRfpId(rfp.getRequestId());
 			to.setSectionId(sectionId);
 			RFPWrapper wrapper = new RFPWrapper();
-			if (wrapper.addRFPSection(to))
+			long rfpSectionId = wrapper.addRFPSection(to);
+			if (rfpSectionId != -1)
 			{
-				updateMB();
-				return "success";
+				to.setRfpSectionId(rfpSectionId);
+				SectionRoleTO srTO = new SectionRoleTO();
+				srTO.setRfpSectionId(rfpSectionId);
+				srTO.setUsername(userName);
+				if (wrapper.createSectionRole(srTO, rfp, to))
+				{
+					updateMB();
+					return "success";
+				}
+				else
+				{
+					return "failure";
+				}
 			}
 			else
 			{
@@ -127,8 +150,19 @@ public class AdminRFPSectionsMB {
 	public List<RFPSectionTO> getRfpSections() {
 		return rfpSections;
 	}
-
 	public void setRfpSections(List<RFPSectionTO> rfpSections) {
 		this.rfpSections = rfpSections;
+	}
+	public List<SelectItem> getUserList() {
+		return userList;
+	}
+	public void setUserList(List<SelectItem> userList) {
+		this.userList = userList;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 }

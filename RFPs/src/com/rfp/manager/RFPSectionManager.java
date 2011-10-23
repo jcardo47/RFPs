@@ -13,7 +13,7 @@ public class RFPSectionManager {
 		return service.getRFPSections(rfpId);
 	}
 
-	public boolean addRFPSection(RFPSectionTO to)
+	public long addRFPSection(RFPSectionTO to)
 	{
 		RFPSectionService service = new RFPSectionService();
 		return service.addRFPSection(to);
