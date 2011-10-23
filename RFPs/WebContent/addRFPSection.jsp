@@ -56,7 +56,7 @@
 			<f:facet name="header">
 				<h:outputText value="Acción"></h:outputText>
 			</f:facet>
-			<h:outputLink>Agregar Items</h:outputLink>
+			<h:outputLink value="addItem.jsp?rfpId=#{rfpSectionsMB.rfp.requestId}&rfpSectionId=#{section.rfpSectionId}">Ver Items</h:outputLink>
 		</h:column>
 	</h:dataTable>
 	<h:form>

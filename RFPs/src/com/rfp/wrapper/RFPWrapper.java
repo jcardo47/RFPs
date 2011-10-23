@@ -7,12 +7,14 @@ import com.rfp.exception.InvalidUseName;
 import com.rfp.exception.RFPStatusAlreadySaved;
 import com.rfp.exception.SectionAlreadySaved;
 import com.rfp.exception.UserRegisterException;
+import com.rfp.manager.ItemManager;
 import com.rfp.manager.RFPManager;
 import com.rfp.manager.RFPSectionManager;
 import com.rfp.manager.RFPSectionRoleManager;
 import com.rfp.manager.RFPStatusManager;
 import com.rfp.manager.SectionManager;
 import com.rfp.manager.UserManager;
+import com.rfp.to.ItemTO;
 import com.rfp.to.RFPSectionTO;
 import com.rfp.to.RFPStatusTO;
 import com.rfp.to.RFPTO;
@@ -109,5 +111,59 @@ public class RFPWrapper
 	{
 		RFPSectionManager manager = new RFPSectionManager();
 		return manager.addRFPSection(to);
+	}
+	
+	public boolean addItem(ItemTO to)
+	{
+		ItemManager manager = new ItemManager();
+		return manager.addItem(to);
+	}
+	
+	public RFPSectionTO getRFPSection(long id)
+	{
+		RFPSectionManager manager = new RFPSectionManager();
+		return manager.getRFPSection(id);
+	}
+
+	public List<ItemTO> getSectionItems(long rfpSectionId)
+	{
+		ItemManager manager = new ItemManager();
+		return manager.getSectionItems(rfpSectionId);
+	}
+	
+	public ItemTO getItem(long id)
+	{
+		ItemManager manager = new ItemManager();
+		return manager.getItem(id);
+	}
+	
+	public boolean rateItem(ItemTO to)
+	{
+		ItemManager manager = new ItemManager();
+		return manager.rateItem(to);
+	}
+	
+	public double getAvgItems(long rfpSectionId)
+	{
+		ItemManager manager = new ItemManager();
+		return manager.getAvgItems(rfpSectionId);
+	}
+	
+	public boolean rateRFPSection(RFPSectionTO to)
+	{
+		RFPSectionManager manager = new RFPSectionManager();
+		return manager.rateRFPSection(to);
+	}
+	
+	public double getAvgRFPSections(long rfpId)
+	{
+		RFPSectionManager manager = new RFPSectionManager();
+		return manager.getAvgRFPSections(rfpId);
+	}
+	
+	public boolean rateRFP(long rfpId, double rate)
+	{
+		RFPManager manager = new RFPManager();
+		return manager.rateRFP(rfpId, rate);
 	}
 }

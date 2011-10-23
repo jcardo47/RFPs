@@ -51,6 +51,26 @@
 		<managed-bean-class>com.rfp.bean.ListRFPSectionRolesMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>addItemMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.AddItemMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>rateItemMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.RateItemMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>rateSectionMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.RateSectionMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>rateRFPMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.RateRFPMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>RegisterUserView</display-name>
 		<from-view-id>/RegisterUserView.jsp</from-view-id>

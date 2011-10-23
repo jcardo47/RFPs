@@ -75,4 +75,96 @@ public class RFPSectionService {
 			}
 		}
 	}
+	
+	public RFPSectionTO getRFPSection(long id)
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			RFPSection entity = em.find(RFPSection.class, id);
+			if (entity != null)
+			{
+				RFPSectionTO to = new RFPSectionTO();
+				to.setAverage(entity.getAverage());
+				to.setRfpId(to.getRfpId());
+				to.setRfpSectionId(id);
+				to.setSectionId(entity.getSectionId());
+				Section section = em.find(Section.class, to.getSectionId());
+				to.setSectionName(section.getName());
+				return to;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		catch (Exception e) 
+		{
+			return null;
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
+	}
+	
+	public boolean rateRFPSection(RFPSectionTO to)
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			RFPSection entity = em.find(RFPSection.class, to.getRfpSectionId());
+			if (entity != null)
+			{
+				em.getTransaction().begin();
+				entity.setAverage(to.getAverage());
+				em.getTransaction().commit();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
+	}
+	
+	public double getAvgRFPSections(long rfpId)
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			Query query = em.createQuery("select rs from RFPSection rs where rs.rfpId = :id");
+			query.setParameter("id", rfpId);
+			List<RFPSection> rs = query.getResultList();
+			double avg = 0.0;
+			for (RFPSection section : rs)
+			{
+				avg += section.getAverage();
+			}
+			return avg / rs.size();
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}
+	}
 }

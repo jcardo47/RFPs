@@ -33,7 +33,7 @@
 	</tr>
 	</table>
 	</h:form>
-	<h:dataTable border="1" value="#{rfpSearchMB.rfps}" var="rfp">
+	<h:dataTable border="1" value="#{rfpSearchMB.rfps}" var="rfp" rendered="#{rfpSearchMB.renderTable}">
 		<h:column>
 			<f:facet name="header">
 				<h:outputText value="Nombre"></h:outputText>
