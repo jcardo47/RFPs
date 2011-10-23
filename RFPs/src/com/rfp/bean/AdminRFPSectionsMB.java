@@ -126,7 +126,7 @@ public class AdminRFPSectionsMB {
 				SectionRoleTO srTO = new SectionRoleTO();
 				srTO.setRfpSectionId(rfpSectionId);
 				srTO.setUsername(userName);
-				if (wrapper.createSectionRole(srTO, rfp, to))
+				if (wrapper.createSectionRole(srTO, rfp, rfpSectionId))
 				{
 					updateMB();
 					return "success";

@@ -175,9 +175,9 @@ public class RFPWrapper
 		return manager.getUsers();
 	}
 	
-	public boolean createSectionRole(SectionRoleTO to, RFPTO rfp, RFPSectionTO rfpSection)
+	public boolean createSectionRole(SectionRoleTO to, RFPTO rfp, long rfpSectionId)
 	{
 		SectionRoleManager manager = new SectionRoleManager();
-		return manager.createSectionRole(to, rfp, rfpSection);
+		return manager.createSectionRole(to, rfp, rfpSectionId);
 	}
 }
