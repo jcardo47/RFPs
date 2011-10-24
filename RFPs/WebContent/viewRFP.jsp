@@ -87,8 +87,12 @@
 		<td><h:outputLink value="#{rfpViewMB.rfp.filename}">Ver/Descargar</h:outputLink></td>
 	</tr>
 	</table>
-	<h:outputLink value="viewRFP.jsp?id=#{rfpViewMB.rfp.requestId}&edit=true">Editar</h:outputLink>
-	<h:outputLink value="addRFPSection.jsp?id=#{rfpViewMB.rfp.requestId}">Ver Secciones</h:outputLink>
+	<table>
+	<tr>
+		<td><h:outputLink value="viewRFP.jsp?id=#{rfpViewMB.rfp.requestId}&edit=true">Editar</h:outputLink></td>
+		<td><h:outputLink value="addRFPSection.jsp?id=#{rfpViewMB.rfp.requestId}">Ver Secciones</h:outputLink></td>
+	</tr>
+	</table>
 <% } else { 
 		
 	FacesContext context = FacesContext.getCurrentInstance();  

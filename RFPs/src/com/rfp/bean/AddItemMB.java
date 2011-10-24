@@ -55,6 +55,18 @@ public class AddItemMB {
 	public void setSectionName(String sectionName) {
 		this.sectionName = sectionName;
 	}
+	public long getRfpId() {
+		return rfpId;
+	}
+	public void setRfpId(long rfpId) {
+		this.rfpId = rfpId;
+	}
+	public long getRfpSectionId() {
+		return rfpSectionId;
+	}
+	public void setRfpSectionId(long rfpSectionId) {
+		this.rfpSectionId = rfpSectionId;
+	}
 
 	public void updateMB()
 	{
