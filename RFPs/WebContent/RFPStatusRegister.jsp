@@ -9,7 +9,9 @@
 </head>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>
 	<center>
+	<h1>Registrar Estados</h1>
 		<h:form>
 				<h:panelGrid border="1" columns="2">
 					<h:outputText value="Nombre"></h:outputText>

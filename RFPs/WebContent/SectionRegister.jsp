@@ -9,7 +9,9 @@
 </head>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>	
 	<center>
+		<h1>Registro de Secciones</h1>
 		<h:form>
 				<h:panelGrid border="1" columns="2">
 					<h:outputLabel value="Nombre"></h:outputLabel>

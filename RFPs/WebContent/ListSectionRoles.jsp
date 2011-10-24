@@ -10,7 +10,9 @@
 </head>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>
 	<center>
+		<h1>RFPs Asignados</h1>
 		<h:form>
 				<h:dataTable border="1" value="#{listRFPSectionRoles.result}" var="result">
 					<h:column id="column1">

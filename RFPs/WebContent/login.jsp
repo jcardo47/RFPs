@@ -10,8 +10,9 @@
 <body>
 <jsp:include page="logo.jsp"></jsp:include>
 <f:view>
-	<h:form>
+	<h:form>	
 	<center>
+		<h1>Login</h1>				
 			<h:panelGrid border="1" columns="2">
 				<h:outputLabel value="Nombre de Usuario:"></h:outputLabel>
 				<h:inputText value="#{loginMB.username}" required="true" requiredMessage="Ingrese el nombre de Usuario">					

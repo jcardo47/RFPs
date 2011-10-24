@@ -9,8 +9,10 @@
 </head>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>
 	<h:form>
 	<center>
+		<h1><h:outputLabel value="#{userMB.butLabel}"/> Usuario</h1>
 			<h:panelGrid border="1" columns="2">
 				<h:outputLabel value="Nombre:"></h:outputLabel>
 				<h:inputText id="txtName" value="#{userMB.firstName}"></h:inputText>

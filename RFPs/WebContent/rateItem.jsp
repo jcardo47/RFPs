@@ -20,6 +20,8 @@
  %>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>
+<center>
 	<div align="center"><h1>Calificar Item</h1></div>
 	<h:form>
 	<h:panelGrid columns="1">
@@ -40,6 +42,7 @@
 	<h:commandButton value="Guardar Puntuación" action="#{rateItemMB.rateItem}"/>
 	</h:panelGrid>
 	</h:form>
+	</center>
 </f:view>
 </body>
 </html>

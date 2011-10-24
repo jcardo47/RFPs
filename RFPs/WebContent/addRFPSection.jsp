@@ -20,6 +20,8 @@
  %>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>
+<center>
 	<div align="center"><h1>Administrar Secciones RFP</h1></div>
 	<table>
 		<tr>
@@ -76,6 +78,7 @@
 	<h:commandButton value="Agregar" action="#{rfpSectionsMB.addSection}"/>
 	</h:panelGrid>
 	</h:form>
+	</center>
 </f:view>
 </body>
 </html>

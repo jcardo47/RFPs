@@ -9,7 +9,10 @@
 </head>
 <body>
 <f:view>
-	Register Successfully 
+	<jsp:include page="logo.jsp"></jsp:include>
+	<center>
+	<h1>Registro Completo</h1>	
+	</center> 
 </f:view>
 </body>
 </html>

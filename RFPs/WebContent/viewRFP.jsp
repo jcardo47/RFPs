@@ -48,7 +48,9 @@
 	}
  %>
 <body>
+<jsp:include page="logo.jsp"></jsp:include>
 <f:view>
+<center>
 	<h1>Administración de RFP</h1>
 <% if (!edit) { %>
 	<table border="1">
@@ -145,6 +147,7 @@
 	</table>
 	</h:form>
 <% } %>
+</center>
 </f:view>
 </body>
 </html>

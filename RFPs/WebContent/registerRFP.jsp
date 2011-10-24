@@ -21,7 +21,9 @@
 </head>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>
 <center>
+	<h1>Registrar RFP</h1>
 	<table>
 	<form action="RegisterRFPServlet" enctype="multipart/form-data" method="post">
 	<tr>

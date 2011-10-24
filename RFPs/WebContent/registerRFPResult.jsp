@@ -9,6 +9,9 @@
 </head>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>
+	<center>
+		<h1>Resultado Registro RFP</h1>
 	<% if (request.getParameter("success").equals("true"))
 	   { %>
 	   RFP Registrado con exito.
@@ -17,6 +20,7 @@
 	   { %>
 	   RFP No pudo ser Registrado con exito.
 	<% } %>
+	</center>
 </f:view>
 </body>
 </html>

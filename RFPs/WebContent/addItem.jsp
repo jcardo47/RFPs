@@ -21,6 +21,8 @@
  %>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>
+<center>
 	<div align="center"><h1>Administrar Items</h1></div>
 	<h:form>
 	<h:panelGrid columns="2">
@@ -57,6 +59,7 @@
 		<h:commandButton value="Agregar Item" action="#{addItemMB.addItem}"/>
 	</h:panelGrid>
 	</h:form>
+	</center>
 </f:view>
 </body>
 </html>

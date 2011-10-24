@@ -9,6 +9,9 @@
 </head>
 <body>
 <f:view>
+<jsp:include page="logo.jsp"></jsp:include>
+	<center>
+		<h1>Buscar RFPs</h1>
 	<h:form>
 	<table>
 	<tr>
@@ -89,6 +92,7 @@
 			<h:outputLink value="viewRFP.jsp?id=#{rfp.requestId}">Administrar</h:outputLink>
 		</h:column>
 	</h:dataTable>
+	</center>
 </f:view>
 </body>
 </html>

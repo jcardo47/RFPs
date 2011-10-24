@@ -19,7 +19,7 @@
 	<managed-bean>
 		<managed-bean-name>userMB</managed-bean-name>
 		<managed-bean-class>com.rfp.bean.RegisterUserMB</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>rfpSearchMB</managed-bean-name>
@@ -39,12 +39,12 @@
 	<managed-bean>
 		<managed-bean-name>sectionRegisterMB</managed-bean-name>
 		<managed-bean-class>com.rfp.bean.SectionRegisterMB</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>RFPStatusRegisterMB</managed-bean-name>
 		<managed-bean-class>com.rfp.bean.RFPStatusRegisterMB</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
+		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
 		<managed-bean-name>listRFPSectionRoles</managed-bean-name>
