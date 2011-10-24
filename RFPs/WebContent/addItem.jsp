@@ -32,6 +32,8 @@
 		<h:outputText value="#{addItemMB.company}"></h:outputText>
 		<h:outputText value="Sección:"/>
 		<h:outputText value="#{addItemMB.sectionName}"/>
+		<h:outputText value=""/>
+		<h:outputLink value="rateSection.jsp?rfpId=#{addItemMB.rfpId}&rfpSectionId=#{addItemMB.rfpSectionId}">Calificar Secci&oacute;n</h:outputLink>
 	</h:panelGrid>
 	<h:dataTable border="1" value="#{addItemMB.items}" var="item">
 		<h:column>

@@ -91,6 +91,12 @@
 			</f:facet>
 			<h:outputLink value="viewRFP.jsp?id=#{rfp.requestId}">Administrar</h:outputLink>
 		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Calificar"></h:outputText>
+			</f:facet>
+			<h:outputLink value="rateRFP.jsp?rfpId=#{rfp.requestId}">Calificar</h:outputLink>
+		</h:column>
 	</h:dataTable>
 	</center>
 </f:view>
