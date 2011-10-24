@@ -8,6 +8,7 @@
 <title>Login</title>
 </head>
 <body>
+<jsp:include page="logo.jsp"></jsp:include>
 <f:view>
 	<h:form>
 	<center>
