@@ -19,7 +19,7 @@ public class RegisterUserMB
 	private String message;
 	private String email2;
 	private String butLabel = "Registrar";
-	private Boolean renderPass = true;
+	private Boolean renderPass = false;
 	
 	public RegisterUserMB ()
 	{
@@ -35,7 +35,7 @@ public class RegisterUserMB
 		if (userTo != null)
 		{
 			butLabel = "Guardar";
-			renderPass = false;
+			renderPass = true;
 			fillTexts(userTo);
 			
 		}
