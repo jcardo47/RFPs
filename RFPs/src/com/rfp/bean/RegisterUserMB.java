@@ -93,6 +93,7 @@ public class RegisterUserMB
 					userTO = getAsUserTO ();
 					userTO = wrapper.registerUser(userTO);
 					returnValue = "success";
+					LoginMB.saveUserSession(userTO);
 				} 
 				catch (Exception e) 
 				{
