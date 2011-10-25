@@ -43,7 +43,7 @@ public class SectionRoleManager {
 		String fromMail = "noreplay@jyl.hostjava.net";
 		
 		Properties properties = new Properties();
-		properties.put("mail.smtp.host", "mail.jyl.hostjava.net");    
+		properties.put("mail.smtp.host", "localhost");    
         properties.put("mail.smtp.port", "26");
         properties.put("mail.smtp.starttls.enable","true");
         properties.put("mail.smtp.user", "noreplay");
