@@ -59,7 +59,7 @@ public class LoginMB {
 		return result;
 	}
 	
-	private void saveUserSession (UserTO userTO)
+	public static void saveUserSession (UserTO userTO)
 	{
 		FacesContext context = FacesContext.getCurrentInstance();
 		HttpServletRequest request = (HttpServletRequest)context.getExternalContext().getRequest();  

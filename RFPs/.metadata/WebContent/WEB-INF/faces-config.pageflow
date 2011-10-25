@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13188055061440" configfile="/RFPs/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="SuccessRegisterUser" x="264" y="84" id="pf13188191280242" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13188191741574" path="/SuccessRegisterUser.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="SuccessRegisterUser" x="264" y="84" id="pf13188191280242" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf13188191741574 pf13195171320510 pf13195171535382" path="/SuccessRegisterUser.jsp"/>
   <nodes xsi:type="pageflow:PFPage" name="RegisterUserView" x="60" y="84" id="pf13188191654323" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf13188191741574" path="/RegisterUserView.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="login" x="81" y="192" id="pf13193111233080" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf13193111233081 pf13193111450703 pf13193111634225" inlinks="pf13193111233081" path="/login.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="UserHome" x="314" y="168" id="pf13193111311192" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf13193111450703" path="/UserHome.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="adminHome" x="300" y="257" id="pf13193111583614" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf13193111634225" path="/adminHome.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="login" x="81" y="384" id="pf13193111233080" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf13193111233081 pf13193111450703 pf13193111634225" inlinks="pf13193111233081" path="/login.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="UserHome" x="314" y="360" id="pf13193111311192" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf13193111450703" path="/UserHome.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="adminHome" x="300" y="449" id="pf13193111583614" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf13193111634225" path="/adminHome.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="SectionRegister" x="64" y="216" id="pf13195171320511" outlinks="pf13195171320510" path="/SectionRegister.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="RFPStatusRegister" x="96" y="295" id="pf13195171535393" outlinks="pf13195171535382" path="/RFPStatusRegister.jsp"/>
   <links id="pf13188191741574" target="pf13188191280242" source="pf13188191654323" outcome="success"/>
   <links id="pf13193111233081" target="pf13193111233080" source="pf13193111233080" outcome="faild">
     <bendPoints d1Height="-36" d2Height="-36"/>
@@ -13,4 +15,6 @@
   </links>
   <links id="pf13193111450703" target="pf13193111311192" source="pf13193111233080" outcome="success"/>
   <links id="pf13193111634225" target="pf13193111583614" source="pf13193111233080" outcome="successAdmin"/>
+  <links id="pf13195171320510" target="pf13188191280242" source="pf13195171320511" outcome="success"/>
+  <links id="pf13195171535382" target="pf13188191280242" source="pf13195171535393" outcome="success"/>
 </pageflow:Pageflow>

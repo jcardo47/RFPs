@@ -1,4 +1,3 @@
-<%@page import="com.rfp.to.UserTO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
@@ -9,27 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<f:view>
-	<jsp:include page="logo.jsp"></jsp:include>
+<f:view>	
 	<center>
-	<h1>Registro Completo!</h1>	
-	<%
-		UserTO userTO = (UserTO)session.getAttribute("username");
-		String pageTo = "";
-		if (userTO != null)
-		{
-			if (userTO.isAdmin())
-			{			
-				pageTo = "adminHome.jsp";				
-			}	
-			else
-			{
-				pageTo = "UserHome.jsp";		
-			}
-			out.println("<a href=\"" + pageTo +"\">Ir Página Principal <a/>" );
-		}
-	 %>	 
-	</center> 
+	<img src="images/logo.png">
+	<h:form>
+		<h1>Se ha hecho Logout con éxito</h1>	
+		<h:outputLink value="login.jsp">Login</h:outputLink>	
+	</h:form>
+	</center>
 </f:view>
 </body>
 </html>
+<%
+			session.invalidate();		
+%>
