@@ -36,4 +36,10 @@ public class ItemManager {
 		ItemService service = new ItemService();
 		return service.getAvgItems(rfpSectionId);
 	}
+	
+	public boolean deleteItem(long idItem)
+	{
+		ItemService service = new ItemService();
+		return service.deleteItem(idItem);
+	}
 }

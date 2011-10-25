@@ -162,4 +162,33 @@ public class ItemService {
 			}
 		}
 	}
+	
+	public boolean deleteItem(long idItem)
+	{
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("RFPs");
+		EntityManager em = null;
+		try
+		{
+			em = emf.createEntityManager();
+			Item item = em.find(Item.class, idItem);
+			if (item != null)
+			{
+				em.getTransaction().begin();
+				em.remove(item);
+				em.getTransaction().commit();
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		finally
+		{
+			if (em != null)
+			{
+				em.close();
+			}
+		}	
+	}
 }

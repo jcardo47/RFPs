@@ -180,4 +180,10 @@ public class RFPWrapper
 		SectionRoleManager manager = new SectionRoleManager();
 		return manager.createSectionRole(to, rfp, rfpSectionId);
 	}
+	
+	public boolean deleteItem(long idItem)
+	{
+		ItemManager manager = new ItemManager();
+		return manager.deleteItem(idItem);
+	}
 }

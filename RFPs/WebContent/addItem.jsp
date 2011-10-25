@@ -54,6 +54,12 @@
 			</f:facet>			
 			<h:outputLink value="rateItem.jsp?itemId=#{item.itemId}&rfpSectionId=#{item.requestSectionId}">Calificar</h:outputLink>
 		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Acción"></h:outputText>
+			</f:facet>			
+			<h:outputLink value="deleteItem.jsp?itemId=#{item.itemId}&rfpSectionId=#{item.requestSectionId}&rfpId=#{addItemMB.rfpId}">Eliminar</h:outputLink>
+		</h:column>
 	</h:dataTable>
 	<h:panelGrid columns="3">
 		<h:outputText value="Nuevo Item:"/>

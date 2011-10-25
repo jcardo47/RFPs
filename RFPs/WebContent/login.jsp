@@ -23,8 +23,12 @@
 			<h:commandButton value="Login" action="#{loginMB.login}"></h:commandButton>
 				<br>
 				<h:outputLabel value="#{loginMB.message}" style="color: #FF0000"></h:outputLabel>				
+<<<<<<< HEAD
 				<br><h:messages style="color: #FF0000"></h:messages><br>
 				Si no tiene usuario aún <h:outputLink value="RegisterUserView.jsp">Regístrese aquí</h:outputLink>				
+=======
+				<br><h:messages style="color: #FF0000"></h:messages>			
+>>>>>>> branch 'master' of https://jcardo47@github.com/jcardo47/RFPs.git
 			</center>
 		</h:form>
 </f:view>

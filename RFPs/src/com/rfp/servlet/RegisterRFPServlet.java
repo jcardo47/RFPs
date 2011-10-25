@@ -29,7 +29,13 @@ import com.rfp.wrapper.RFPWrapper;
 @WebServlet("/RegisterRFPServlet")
 public class RegisterRFPServlet extends HttpServlet {
 
-	public static final String PATH = "D:\\Apache\\apache-tomcat-7.0.19\\webapps\\ROOT\\docsRFP\\"; 
+	public static final String PATH;
+	
+	static{
+		String temp = System.getProperty("user.dir");
+		int binId = temp.lastIndexOf("bin");
+		PATH = temp.substring(0, binId) + "webapps\\ROOT\\docsRFP";
+	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
@@ -97,9 +103,13 @@ public class RegisterRFPServlet extends HttpServlet {
 				if (rfp.getRequestId() != -1)
 				{
 					rfp.setFilename(toSave.getName());
-					if (new File(PATH + rfp.getRequestId()).mkdir())
+					if (!new File(PATH).exists())
 					{
-						String filename = PATH + rfp.getRequestId() + "\\" + toSave.getName();
+						new File(PATH).mkdir();
+					}
+					if (new File(PATH + "\\" + rfp.getRequestId()).mkdir())
+					{
+						String filename = PATH + "\\" + rfp.getRequestId() + "\\" + toSave.getName();
 						File file = new File(filename);
 						toSave.write(file);
 						result = true;
