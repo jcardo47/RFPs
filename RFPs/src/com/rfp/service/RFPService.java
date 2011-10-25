@@ -1,7 +1,5 @@
 package com.rfp.service;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +19,7 @@ public class RFPService {
 	
 	public RFPService()
 	{
-		try 
-		{
-			url = "http://" + InetAddress.getLocalHost().getHostAddress() + ":8080/docsRFP/";
-		} 
-		catch (UnknownHostException e)  {} 
+		url = "http://jyl.hostjava.net/docsRFP/";
 	}
 	
 	public void registerRFP(RFPTO requestTO)

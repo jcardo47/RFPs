@@ -34,7 +34,7 @@ public class RegisterRFPServlet extends HttpServlet {
 	static{
 		String temp = System.getProperty("user.dir");
 		int binId = temp.lastIndexOf("bin");
-		PATH = temp.substring(0, binId) + "webapps\\ROOT\\docsRFP";
+		PATH = temp.substring(0, binId) + "webapps/ROOT/docsRFP";
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -107,9 +107,9 @@ public class RegisterRFPServlet extends HttpServlet {
 					{
 						new File(PATH).mkdir();
 					}
-					if (new File(PATH + "\\" + rfp.getRequestId()).mkdir())
+					if (new File(PATH + "/" + rfp.getRequestId()).mkdir())
 					{
-						String filename = PATH + "\\" + rfp.getRequestId() + "\\" + toSave.getName();
+						String filename = PATH + "/" + rfp.getRequestId() + "/" + toSave.getName();
 						File file = new File(filename);
 						toSave.write(file);
 						result = true;
