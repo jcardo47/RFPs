@@ -43,14 +43,9 @@ public class SectionRoleManager {
 		String fromMail = "noreplay@jyl.hostjava.net";
 		
 		Properties properties = new Properties();
-		properties.put("mail.smtp.host", "localhost");    
-        properties.put("mail.smtp.port", "26");
-        properties.put("mail.smtp.starttls.enable","true");
-        properties.put("mail.smtp.user", "noreplay");
+		properties.put("mail.smtp.host", "localhost");
+        properties.put("mail.smtp.user", "noreplay@jyl.hostjava.net");
 		properties.put("mail.smtp.auth", "true");
-//		properties.put("mail.smtp.socketFactory.port", "465");
-		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-		properties.put("mail.smtp.socketFactory.fallback", "false");
 
 		Session session = Session.getDefaultInstance(properties);
 		
@@ -67,7 +62,6 @@ public class SectionRoleManager {
 		    		" del RFP '" + rfp.getName() + "' emitido por la empresa " + rfp.getCompany() + 
 		    		".\nEl RFP tiene fecha de decision para el " + calToString(rfp.getDecitionDate()) + 
 		    		".\n\nNo responda a este correo.");
-		    //Transport.send(msg);
 		    Transport t = session.getTransport("smtp");
             t.connect((String)properties.get("mail.smtp.user"), "hola123Mundo");  
             t.sendMessage(msg, msg.getAllRecipients());
