@@ -103,5 +103,21 @@
 			<to-view-id>/adminHome.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<display-name>SectionRegister</display-name>
+		<from-view-id>/SectionRegister.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/SuccessRegisterUser.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>RFPStatusRegister</display-name>
+		<from-view-id>/RFPStatusRegister.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/SuccessRegisterUser.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
 
 </faces-config>

@@ -12,7 +12,7 @@
 <f:view>
 	<jsp:include page="logo.jsp"></jsp:include>
 	<center>
-	<h1>Registro Completo</h1>	
+	<h1>Registro Completo!</h1>	
 	<%
 		UserTO userTO = (UserTO)session.getAttribute("username");
 		String pageTo = "";

@@ -8,8 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<f:view>
-
+<f:view>	
+	<center>
+	<img src="images/logo.png">
+	<h:form>
+		<h1>Se ha hecho Logout con éxito</h1>	
+		<h:outputLink value="login.jsp">Login</h:outputLink>	
+	</h:form>
+	</center>
 </f:view>
 </body>
 </html>
+<%
+			session.invalidate();		
+%>
