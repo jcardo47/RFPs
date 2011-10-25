@@ -48,9 +48,9 @@ public class SectionRoleManager {
         properties.put("mail.smtp.starttls.enable","true");
         properties.put("mail.smtp.user", "noreplay");
 		properties.put("mail.smtp.auth", "true");
-//		properties.put("mail.smtp.socketFactory.port", "25");
-//		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
-//		properties.put("mail.smtp.socketFactory.fallback", "false");
+//		properties.put("mail.smtp.socketFactory.port", "465");
+		properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		properties.put("mail.smtp.socketFactory.fallback", "false");
 
 		Session session = Session.getDefaultInstance(properties);
 		
