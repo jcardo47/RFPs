@@ -1,10 +1,12 @@
 package com.rfp.manager;
 
+import java.util.Calendar;
 import java.util.List;
 
 import com.rfp.exception.RFPStatusAlreadySaved;
 import com.rfp.service.RFPStatusService;
 import com.rfp.to.RFPStatusTO;
+import com.rfp.to.StatusStatsTO;
 
 public class RFPStatusManager {
 	
@@ -31,5 +33,17 @@ public class RFPStatusManager {
 	{
 		RFPStatusService service = new RFPStatusService();
 		return service.getStatus(id);	
+	}
+	
+	public List<StatusStatsTO> getStatusStats()
+	{
+		RFPStatusService service = new RFPStatusService();
+		return service.getStatusStats();
+	}
+	
+	public List<StatusStatsTO> getStatusStats(Calendar fromDate, Calendar toDate)
+	{
+		RFPStatusService service = new RFPStatusService();
+		return service.getStatusStats(fromDate, toDate);
 	}
 }

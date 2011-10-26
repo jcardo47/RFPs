@@ -71,6 +71,11 @@
 		<managed-bean-class>com.rfp.bean.RateRFPMB</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>statusStatsMB</managed-bean-name>
+		<managed-bean-class>com.rfp.bean.StatusStatsMB</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>RegisterUserView</display-name>
 		<from-view-id>/RegisterUserView.jsp</from-view-id>

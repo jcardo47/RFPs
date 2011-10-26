@@ -1,6 +1,7 @@
 package com.rfp.wrapper;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import com.rfp.exception.InvalidPassword;
 import com.rfp.exception.InvalidUseName;
@@ -21,6 +22,7 @@ import com.rfp.to.RFPStatusTO;
 import com.rfp.to.RFPTO;
 import com.rfp.to.SectionRoleTO;
 import com.rfp.to.SectionTO;
+import com.rfp.to.StatusStatsTO;
 import com.rfp.to.UserTO;
 
 public class RFPWrapper
@@ -185,5 +187,17 @@ public class RFPWrapper
 	{
 		ItemManager manager = new ItemManager();
 		return manager.deleteItem(idItem);
+	}
+	
+	public List<StatusStatsTO> getStatusStats()
+	{
+		RFPStatusManager manager = new RFPStatusManager();
+		return manager.getStatusStats();
+	}
+	
+	public List<StatusStatsTO> getStatusStats(Calendar fromDate, Calendar toDate)
+	{
+		RFPStatusManager manager = new RFPStatusManager();
+		return manager.getStatusStats(fromDate, toDate);
 	}
 }
