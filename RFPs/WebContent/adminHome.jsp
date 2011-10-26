@@ -15,6 +15,7 @@
 			<h:panelGrid border="1" columns="1">
 				<h:outputLink value="SectionRegister.jsp">Crear Secciones</h:outputLink>				
 				<h:outputLink value="RFPStatusRegister.jsp">Crear RFP Estados</h:outputLink>
+				<h:outputLink value="statusStats.jsp">Estad&iacute;sticas de Estados</h:outputLink>
 				<h:outputLink value="RegisterUserView.jsp">Editar Perfil</h:outputLink>	
 				<h:outputLink value="ListSectionRoles.jsp">Listar RFPs Asignados</h:outputLink>
 				<h:outputLink value="searchRFP.jsp">Buscar RFPs</h:outputLink>		
