@@ -8,6 +8,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Rate Item</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script>
+	$(function() {
+		$("input:submit").button();
+	});
+</script>
 </head>
 <%
 	RateItemMB mb = (RateItemMB)(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("rateItemMB"));
@@ -22,26 +31,27 @@
 <f:view>
 <jsp:include page="logo.jsp"></jsp:include>
 <center>
-	<div align="center"><h1>Calificar Item</h1></div>
+	<h1>Calificar Item</h1>
 	<h:form>
 	<h:panelGrid columns="1">
 	<h:panelGrid columns="2">
-		<h:outputText value="RFP:"></h:outputText>
-		<h:outputText value="#{rateItemMB.rfpName}"></h:outputText>
-		<h:outputText value="Compañía:"></h:outputText>
-		<h:outputText value="#{rateItemMB.company}"></h:outputText>
-		<h:outputText value="Sección:"/>
-		<h:outputText value="#{rateItemMB.sectionName}"/>
-		<h:outputText value="Item:"/>
-		<h:outputText value="#{rateItemMB.itemName}"/>
-		<h:outputText value="Puntuación"/>
-		<h:inputText value="#{rateItemMB.value}">
+		<h:outputLabel value="RFP:"/>
+		<h:outputLabel value="#{rateItemMB.rfpName}"/>
+		<h:outputLabel value="Compañía:"/>
+		<h:outputLabel value="#{rateItemMB.company}"/>
+		<h:outputLabel value="Sección:"/>
+		<h:outputLabel value="#{rateItemMB.sectionName}"/>
+		<h:outputLabel value="Item:"/>
+		<h:outputLabel value="#{rateItemMB.itemName}"/>
+		<h:outputLabel value="Puntuación"/>
+		<h:inputText value="#{rateItemMB.value}" validatorMessage="El valor debe estar entre 0 y 5">
 			<f:validateDoubleRange minimum="0" maximum="5"/>
 		</h:inputText>
 	</h:panelGrid>
 	<h:commandButton value="Guardar Puntuación" action="#{rateItemMB.rateItem}"/>
 	</h:panelGrid>
 	</h:form>
+	<h:messages></h:messages>
 	</center>
 </f:view>
 </body>

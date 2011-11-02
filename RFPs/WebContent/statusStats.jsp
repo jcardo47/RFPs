@@ -6,10 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Status Stats</title>
-<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />	
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
 <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
 <script>
+	$(function() {
+		$("input:submit").button();
+	});
+
 	$(function() {
 		$( "#startDate" ).datepicker();
 	});
@@ -34,33 +39,33 @@
 		<h:inputHidden id="from" value="#{statusStatsMB.fromDate}"/>
 		<h:inputHidden id="to" value="#{statusStatsMB.toDate}"/>
 		<h:panelGrid border="1" columns="2">
-			<h:outputText value="Desde"></h:outputText>
+			<h:outputLabel value="Desde"/>
 			<input id="startDate" onchange="updateDate(document.getElementById('startDate'), 'form:from');" readonly="readonly">
-			<h:outputText value="Hasta"></h:outputText>
+			<h:outputLabel value="Hasta"/>
 			<input id="toDate" onchange="updateDate(document.getElementById('toDate'), 'form:to');" readonly="readonly">
 			<h:commandButton value="Ver Todos" action="#{statusStatsMB.retrieveStats}"/>
 			<h:commandButton value="Buscar" action="#{statusStatsMB.retrieveByDate}"/>
 		</h:panelGrid>
 	</h:form>
-	<h:outputText value="#{statusStatsMB.message}" style="color: #FF0000"/>
+	<h:outputLabel value="#{statusStatsMB.message}" style="color: #FF0000"/>
 	<h:dataTable border="1" value="#{statusStatsMB.stats}" var="stat" rendered="#{statusStatsMB.renderTable}">
 		<h:column>
 			<f:facet name="header">
-				<h:outputText value="Estado"></h:outputText>
+				<h:outputLabel value="Estado"/>
 			</f:facet>
-			<h:outputText value="#{stat.status.name}"/>
+			<h:outputLabel value="#{stat.status.name}"/>
 		</h:column>
 		<h:column>
 			<f:facet name="header">
-				<h:outputText value="Número de RFP"></h:outputText>
+				<h:outputLabel value="Número de RFP"/>
 			</f:facet>
-			<h:outputText value="#{stat.quantity}"/>
+			<h:outputLabel value="#{stat.quantity}"/>
 		</h:column>
 		<h:column>
 			<f:facet name="header">
-				<h:outputText value="Calificación Promedio"></h:outputText>
+				<h:outputLabel value="Calificación Promedio"/>
 			</f:facet>
-			<h:outputText value="#{stat.average}"/>
+			<h:outputLabel value="#{stat.average}"/>
 		</h:column>
 	</h:dataTable>
 </center>

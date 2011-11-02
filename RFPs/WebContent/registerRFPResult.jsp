@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registrar RFP</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
 <f:view>
@@ -14,11 +15,11 @@
 		<h1>Resultado Registro RFP</h1>
 	<% if (request.getParameter("success").equals("true"))
 	   { %>
-	   RFP Registrado con exito.
+	   <label>RFP Registrado con exito.</label>
 	<% }
 	   else
 	   { %>
-	   RFP No pudo ser Registrado con exito.
+	   <label>RFP No pudo ser Registrado con exito.</label>
 	<% } %>
 	</center>
 </f:view>

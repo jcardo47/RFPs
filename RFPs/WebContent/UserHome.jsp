@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
 <%@include file="UserTemplate.jsp"%>
@@ -13,10 +14,10 @@
 <f:view>
 <h:form>
 	<center>
-				<h:panelGrid border="1" columns="1">
-					<h:outputLink value="ListSectionRoles.jsp">Listar RFPs Asignados</h:outputLink>
-					<h:outputLink value="RegisterUserView.jsp">Editar Perfil</h:outputLink>					
-				</h:panelGrid>
+		<h:panelGrid border="1" columns="1">
+			<h:outputLink value="ListSectionRoles.jsp">Listar RFPs Asignados</h:outputLink>
+			<h:outputLink value="RegisterUserView.jsp">Editar Perfil</h:outputLink>					
+		</h:panelGrid>
 	</center>	
 </h:form>
 </f:view>

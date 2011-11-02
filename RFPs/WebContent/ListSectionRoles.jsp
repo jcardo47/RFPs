@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Asignaciones</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
 <f:view>
@@ -17,25 +18,25 @@
 				<h:dataTable border="1" value="#{listRFPSectionRoles.result}" var="result">
 					<h:column id="column1">
 						<f:facet name="header">							
-							<h:outputText value="RFP"></h:outputText>
+							<h:outputLabel value="RFP"/>
 						</f:facet>
-						<h:outputText value="#{result[0]}"></h:outputText>					
+						<h:outputLabel value="#{result[0]}"/>					
 					</h:column>
 					<h:column id="column2">
 						<f:facet name="header">
-							<h:outputText value="Acción"></h:outputText>							
+							<h:outputLabel value="Acción"/>							
 						</f:facet>						
 						<h:outputLink value="viewRFP.jsp?id=#{result[1]}">Ver RFP</h:outputLink>						
 					</h:column>
 					<h:column id="column3">
 						<f:facet name="header">
-							<h:outputText value="Sección"></h:outputText>							
+							<h:outputLabel value="Sección"/>							
 						</f:facet>				
-						<h:outputText value="#{result[2]}"></h:outputText>																
+						<h:outputLabel value="#{result[2]}"/>																
 					</h:column>
 					<h:column id="column4">
 						<f:facet name="header">
-							<h:outputText value="Acción"></h:outputText>							
+							<h:outputLabel value="Acción"/>							
 						</f:facet>
 						<h:outputLink value="addItem.jsp?rfpId=#{result[1]}&rfpSectionId=#{result[3]}">Ver Sección</h:outputLink>												
 					</h:column>

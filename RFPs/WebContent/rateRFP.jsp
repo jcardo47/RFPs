@@ -8,6 +8,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Rate RFP</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link type="text/css" href="css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+<script>
+	$(function() {
+		$("input:submit").button();
+	});
+</script>
 </head>
 <%
 	RateRFPMB mb = (RateRFPMB)(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("rateRFPMB"));
@@ -22,24 +31,25 @@
 <f:view>
 <jsp:include page="logo.jsp"></jsp:include>
 <center>
-<div align="center"><h1>Calificar RFP</h1></div>
+<h1>Calificar RFP</h1>
 	<h:form>
 	<h:panelGrid columns="1">
 	<h:panelGrid columns="2">
-		<h:outputText value="RFP:"></h:outputText>
-		<h:outputText value="#{rateRFPMB.rfpName}"></h:outputText>
-		<h:outputText value="Compañía:"></h:outputText>
-		<h:outputText value="#{rateRFPMB.company}"></h:outputText>
-		<h:outputText value="Promedio Secciones:"/>
-		<h:outputText value="#{rateRFPMB.avgSections}"/>
-		<h:outputText value="Puntuación"/>
-		<h:inputText value="#{rateRFPMB.average}">
+		<h:outputLabel value="RFP:"/>
+		<h:outputLabel value="#{rateRFPMB.rfpName}"/>
+		<h:outputLabel value="Compañía:"/>
+		<h:outputLabel value="#{rateRFPMB.company}"/>
+		<h:outputLabel value="Promedio Secciones:"/>
+		<h:outputLabel value="#{rateRFPMB.avgSections}"/>
+		<h:outputLabel value="Puntuación"/>
+		<h:inputText value="#{rateRFPMB.average}" validatorMessage="El valor debe estar entre 0 y 5">
 			<f:validateDoubleRange minimum="0" maximum="5"/>
 		</h:inputText>
 	</h:panelGrid>
 	<h:commandButton value="Guardar Puntuación" action="#{rateRFPMB.rateRFPn}"/>
 	</h:panelGrid>
 	</h:form>
+	<h:messages></h:messages>
 	</center>
 </f:view>
 </body>
